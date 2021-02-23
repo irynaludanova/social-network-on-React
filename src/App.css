@@ -1,38 +1,138 @@
-.App {
-  text-align: center;
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;500;900&display=swap");
+
+.app-wrapper {
+  font-family: "Noto Sans KR", sans-serif;
+  box-sizing: border-box;
+  overflow: hidden;
+  display: grid;
+  height: 100vh;
+  grid-template-rows: 70px 1fr;
+  grid-template-columns: 2fr 10fr;
+  /* grid-gap: 10px; */
+  grid-template-areas:
+    "header header "
+    "nav content ";
+  background: url("https://cdn.pixabay.com/photo/2015/12/19/02/12/texture-1099399__340.jpg");
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h1 {
+  color: rgb(237, 243, 225);
+  font-weight: 900;
+  text-transform: uppercase;
+  text-decoration: darkseagreen;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+h2 {
+  color: rgb(237, 243, 225);
+  font-weight: 900;
+}
+h3 {
+  color: rgb(237, 243, 225);
+  font-weight: 500;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #00160b7a;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  grid-area: header;
+}
+.title {
+  margin: 0 auto;
+}
+
+.rotate-shadows {
+  width: 27px;
+  height: 27px;
+  position: relative;
+}
+.rotate-shadows:after,
+.rotate-shadows:before {
+  content: "";
+  border-radius: 2%;
+  position: absolute;
+  padding: 8px;
+  margin: -5px 25px;
+  width: 100%;
+  height: 100%;
+  transform-origin: center center;
+}
+.rotate-shadows:before {
+  box-shadow: inset 0 20px 0 rgba(0, 250, 250, 0.6),
+    inset 20px 0 0 rgba(0, 200, 200, 0.6),
+    inset 0 -20px 0 rgba(0, 150, 200, 0.6),
+    inset -20px 0 0 rgba(0, 200, 250, 0.6);
+  animation: rotate-before 2s -0.5s linear infinite;
+}
+.rotate-shadows:after {
+  box-shadow: inset 0 20px 0 rgba(250, 250, 0, 0.6),
+    inset 20px 0 0 rgba(250, 200, 0, 0.6),
+    inset 0 -20px 0 rgba(250, 150, 0, 0.6),
+    inset -20px 0 0 rgba(250, 100, 0, 0.6);
+  animation: rotate-after 2s -0.5s linear infinite;
+}
+@keyframes rotate-after {
+  0% {
+    transform: rotateZ(0deg) scaleX(1) scaleY(1);
+  }
+  50% {
+    transform: rotateZ(180deg) scaleX(0.82) scaleY(0.95);
+  }
+  100% {
+    transform: rotateZ(360deg) scaleX(1) scaleY(1);
+  }
+}
+@keyframes rotate-before {
+  0% {
+    transform: rotateZ(0deg) scaleX(1) scaleY(1);
+  }
+  50% {
+    transform: rotateZ(-180deg) scaleX(0.95) scaleY(0.85);
+  }
+  100% {
+    transform: rotateZ(-360deg) scaleX(1) scaleY(1);
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.nav {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding: 40px;
+  text-align: center;
+  text-shadow: 0 14px 28px rgba(0, 0, 0, 0.45), 0 10px 10px rgba(0, 0, 0, 0.42);
+  grid-area: nav;
+  background-color: #00160b7a;
+}
+.nav a {
+  text-decoration: none;
+  color: antiquewhite;
+  text-transform: uppercase;
+  margin: 10px;
+}
+.content {
+  padding: 20px;
+  width: 100%;
+  margin: 0 auto;
+  grid-area: content;
+  background-color: rgba(224, 123, 6, 0.473);
 }
 
-.App-link {
-  color: #61dafb;
+.content img {
+  width: 12rem;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.userInfo {
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  color: antiquewhite;
+}
+
+.description {
+  margin-left: 30px;
 }

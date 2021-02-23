@@ -1,0 +1,15 @@
+.nav {
+  display: flex;
+  flex-direction: column;
+  padding: 40px;
+  text-align: center;
+  text-shadow: 0 14px 28px rgba(0, 0, 0, 0.45), 0 10px 10px rgba(0, 0, 0, 0.42);
+  grid-area: nav;
+  background-color: #00160b7a;
+}
+.nav a {
+  text-decoration: none;
+  color: antiquewhite;
+  text-transform: uppercase;
+  margin: 10px;
+}
