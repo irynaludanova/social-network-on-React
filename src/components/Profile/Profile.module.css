@@ -5,3 +5,10 @@
   grid-area: content;
   background-color: rgba(224, 123, 6, 0.473);
 }
+.userInfo {
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  color: antiquewhite;
+}
