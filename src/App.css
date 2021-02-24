@@ -30,3 +30,11 @@ h3 {
   color: rgb(237, 243, 225);
   font-weight: 500;
 }
+
+.app-wrapper-content {
+  padding: 20px;
+  width: 100%;
+  margin: 0 auto;
+  grid-area: content;
+  background-color: rgba(224, 123, 6, 0.473);
+}
