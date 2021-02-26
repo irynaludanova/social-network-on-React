@@ -5,7 +5,7 @@
   box-sizing: border-box;
   overflow: hidden;
   display: grid;
-  height: 100vh;
+  height: auto;
   grid-template-rows: 70px 1fr;
   grid-template-columns: 2fr 10fr;
   /* grid-gap: 10px; */
