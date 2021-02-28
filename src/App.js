@@ -18,7 +18,9 @@ function App(props) {
         <div className="app-wrapper-content">
           <Route
             path="/dialogs"
-            render={() => <Dialogs state={props.state.messagesPage} />}
+            render={() => (
+              <Dialogs store={props.store} state={props.state.dialogsPage} />
+            )}
           />
           <Route
             exact
