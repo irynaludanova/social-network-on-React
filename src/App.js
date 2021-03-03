@@ -8,6 +8,7 @@ import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
 import { BrowserRouter, Route } from "react-router-dom";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
+import UsersContainer from "./components/Users/UsersContainer";
 
 function App(props) {
   return (
@@ -24,6 +25,7 @@ function App(props) {
             path="/profile"
             render={() => <Profile store={props.store} />}
           />
+          <Route path="/users" render={() => <UsersContainer />} />
           <Route exact path="/news" render={() => <News />} />
           <Route exact path="/music" render={() => <Music />} />
           <Route exact path="/settings" render={() => <Settings />} />
