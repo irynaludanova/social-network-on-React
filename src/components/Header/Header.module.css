@@ -63,3 +63,10 @@
     transform: rotateZ(-360deg) scaleX(1) scaleY(1);
   }
 }
+
+.loginBlock {
+  float: right;
+}
+.loginBlock a {
+  color: antiquewhite;
+}
