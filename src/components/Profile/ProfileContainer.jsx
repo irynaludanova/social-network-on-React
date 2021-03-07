@@ -7,10 +7,8 @@ import {
   getUsersStatus,
   updateStatus,
 } from "../../redux/profile-reducer";
-import { Redirect } from "react-router-dom";
 import { withAuthRedirect } from "../../hoc/withAuthRedirect";
 import { compose } from "redux";
-import * as axios from "axios";
 
 class ProfileContainer extends React.Component {
   componentDidMount() {
