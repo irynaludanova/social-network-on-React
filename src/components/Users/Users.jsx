@@ -2,9 +2,6 @@ import React from "react";
 import styles from "./users.module.css";
 import userPhoto from "../../assets/images/user.png";
 import { NavLink } from "react-router-dom";
-import * as axios from "axios";
-import { toggleFollowingProgress } from "../../redux/users-reducer";
-import { usersAPI } from "../../api/api";
 
 let Users = (props) => {
   let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
@@ -29,32 +26,38 @@ let Users = (props) => {
           );
         })}
       </div>
-      {props.users.map((u) => (
-        <div key={u.id}>
+      {props.users.map((user) => (
+        <div key={user.id}>
           <span>
             <div>
-              <NavLink to={"/profile" + u.id}>
+              <NavLink to={`/profile/` + user.id}>
                 <img
-                  src={u.photos.small != null ? u.photos.small : userPhoto}
+                  src={
+                    user.photos.small != null ? user.photos.small : userPhoto
+                  }
                   className={styles.userPhoto}
                 />
               </NavLink>
             </div>
             <div>
-              {u.followed ? (
+              {user.followed ? (
                 <button
-                  disabled={props.followingInProgress.some((id) => id === u.id)}
+                  disabled={props.followingInProgress.some(
+                    (id) => id === user.id
+                  )}
                   onClick={() => {
-                    props.unfollow(u.id);
+                    props.unfollow(user.id);
                   }}
                 >
                   Unfollow
                 </button>
               ) : (
                 <button
-                  disabled={props.followingInProgress.some((id) => id === u.id)}
+                  disabled={props.followingInProgress.some(
+                    (id) => id === user.id
+                  )}
                   onClick={() => {
-                    props.follow(u.id);
+                    props.follow(user.id);
                   }}
                 >
                   Follow
@@ -64,12 +67,12 @@ let Users = (props) => {
           </span>
           <span>
             <span>
-              <div>{u.name}</div>
-              <div>{u.status}</div>
+              <div>{user.name}</div>
+              <div>{user.status}</div>
             </span>
             <span>
-              <div>{"u.location.country"}</div>
-              <div>{"u.location.city"}</div>
+              <div>{"user.location.country"}</div>
+              <div>{"user.location.city"}</div>
             </span>
           </span>
         </div>

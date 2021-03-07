@@ -16,18 +16,6 @@ export const usersAPI = {
         return response.data;
       });
   },
-
-  getUsersMe() {
-    return instance.get(`auth/me`).then((response) => {
-      return response.data;
-    });
-  },
-  getUsersProfile(userId) {
-    return instance.get(`profile/` + userId).then((response) => {
-      return response.data;
-    });
-  },
-
   follow(userId) {
     return instance.post(
       `https://social-network.samuraijs.com/api/1.0/follow/${userId}`
@@ -37,5 +25,33 @@ export const usersAPI = {
     return instance.delete(
       `https://social-network.samuraijs.com/api/1.0/follow/${userId}`
     );
+  },
+};
+
+export const authAPI = {
+  getUsersMe() {
+    return instance.get(`auth/me`).then((response) => {
+      return response.data;
+    });
+  },
+};
+
+export const profileAPI = {
+  getUsersProfile(userId) {
+    return instance.get(`profile/` + userId).then((response) => {
+      return response.data;
+    });
+  },
+  getUsersStatus(userId) {
+    return instance.get(`profile/status/` + userId).then((response) => {
+      return response.data;
+    });
+  },
+  updateStatus(status) {
+    return instance
+      .put(`profile/status`, { status: status })
+      .then((response) => {
+        return response.data;
+      });
   },
 };
