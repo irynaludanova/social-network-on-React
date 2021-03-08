@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./users.module.css";
+import classes from "./users.module.css";
 import userPhoto from "../../assets/images/user.png";
 import { NavLink } from "react-router-dom";
 
@@ -16,7 +16,7 @@ let Users = (props) => {
         {pages.map((p) => {
           return (
             <span
-              className={props.currentPage === p && styles.selectedPage}
+              className={props.currentPage === p && classes.selectedPage}
               onClick={(e) => {
                 props.onPageChanged(p);
               }}
@@ -36,7 +36,7 @@ let Users = (props) => {
                     user.photos.small != null ? user.photos.small : userPhoto
                   }
                   alt={"userphoto"}
-                  className={styles.userPhoto}
+                  className={classes.userPhoto}
                 />
               </NavLink>
             </div>
