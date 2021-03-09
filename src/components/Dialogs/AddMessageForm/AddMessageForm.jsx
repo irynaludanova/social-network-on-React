@@ -7,9 +7,9 @@ import {
 import { reduxForm, Field } from "redux-form";
 
 let maxLength100 = maxLengthCreator(100);
-const AddMessageForm = (props) => {
+const AddMessageForm = ({ handleSubmit }) => {
   return (
-    <form onSubmit={props.handleSubmit}>
+    <form onSubmit={handleSubmit}>
       <div>
         <Field
           component={Textarea}

@@ -5,8 +5,8 @@ import Message from "./Message/Message";
 import { Redirect } from "react-router-dom";
 import AddMessageForm from "./AddMessageForm/AddMessageForm";
 
-const Dialogs = (props) => {
-  let state = props.dialogsPage;
+const Dialogs = ({ dialogsPage, isAuth, sendMessage }) => {
+  let state = dialogsPage;
   let dialogsElements = state.dialogs.map((d) => (
     <DialogItem name={d.name} key={d.id} id={d.id} />
   ));
@@ -17,10 +17,10 @@ const Dialogs = (props) => {
   let newMessageBody = state.newMessageBody;
 
   let addNewMessage = (values) => {
-    props.sendMessage(values.newMessageBody);
+    sendMessage(values.newMessageBody);
   };
 
-  if (!props.isAuth) {
+  if (!isAuth) {
     return <Redirect to={"/login"} />;
   }
   return (

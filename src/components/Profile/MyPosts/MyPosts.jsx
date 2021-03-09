@@ -9,14 +9,14 @@ import {
 import { Textarea } from "../../common/FormsControls/FormsControls";
 
 const maxLength10 = maxLengthCreator(10);
-const MyPosts = React.memo((props) => {
-  let postsElements = props.posts.map((p) => (
+const MyPosts = React.memo(({ posts, addPost }) => {
+  let postsElements = posts.map((p) => (
     <Post message={p.message} likesCount={p.likesCount} key={p.id} />
   ));
 
   let newPostText = React.createRef();
   let onAddPost = (values) => {
-    props.addPost(values.newPostText);
+    addPost(values.newPostText);
   };
 
   return (
@@ -31,9 +31,9 @@ const MyPosts = React.memo((props) => {
     </div>
   );
 });
-const AddNewPostForm = (props) => {
+const AddNewPostForm = ({ handleSubmit }) => {
   return (
-    <form onSubmit={props.handleSubmit}>
+    <form onSubmit={handleSubmit}>
       <Field
         component={Textarea}
         name={"newPostText"}
