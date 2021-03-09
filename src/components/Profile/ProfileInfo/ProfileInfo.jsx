@@ -5,6 +5,7 @@ import Description from "../../Descriptions/Description";
 import ProfileStatus from "./ProfileStatus";
 import userPhoto from "../../../assets/images/user.png";
 import classes from "./ProfileInfo.module.css";
+import ProfileStatusWithHooks from "./ProfileStatusWithHooks";
 
 const ProfileInfo = (props) => {
   if (!props.profile) {
@@ -13,7 +14,10 @@ const ProfileInfo = (props) => {
   return (
     <div className={classes.userInfo}>
       <Avatar profile={props.profile || userPhoto} />
-      <ProfileStatus status={props.status} updateStatus={props.updateStatus} />
+      <ProfileStatusWithHooks
+        status={props.status}
+        updateStatus={props.updateStatus}
+      />
       <Description profile={props.profile} />
     </div>
   );
