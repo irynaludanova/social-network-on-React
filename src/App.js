@@ -10,14 +10,15 @@ import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import UsersContainer from "./components/Users/UsersContainer";
 import ProfileContainer from "./components/Profile/ProfileContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
-import { connect } from "react-redux";
-import { initialiseApp } from "./redux/app-reducer";
+import { connect, Provider } from "react-redux";
+import { initializeApp } from "./redux/app-reducer";
 import { compose } from "redux";
 import Preloader from "./components/common/Preloader/Preloader";
+import store from "./redux/redux-store";
 
-class App extends React.Component {
+class App extends Component {
   componentDidMount() {
-    this.props.initialiseApp();
+    this.props.initializeApp();
   }
   render() {
     if (!this.props.initialized) {
@@ -46,5 +47,5 @@ const mapStateToProps = (state) => ({
 });
 export default compose(
   withRouter,
-  connect(mapStateToProps, { initialiseApp })
+  connect(mapStateToProps, { initializeApp })
 )(App);
