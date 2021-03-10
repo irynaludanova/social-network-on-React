@@ -1,0 +1,1 @@
+{"version":3,"sources":["components/News/News.jsx"],"names":["News","props"],"mappings":"kGAAA,uBAOeA,UAJF,SAACC,GACZ,OAAO","file":"static/js/8.86b67e92.chunk.js","sourcesContent":["import React from \"react\";\r\n// import classes from \" ./Dialogs.module.css\";\r\n\r\nconst News = (props) => {\r\n  return <div>news</div>;\r\n};\r\n\r\nexport default News;\r\n"],"sourceRoot":""}
