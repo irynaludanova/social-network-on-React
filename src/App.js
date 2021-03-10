@@ -1,14 +1,16 @@
 import React, { Component } from "react";
 import "./App.css";
 import Navbar from "./components/Navbar/Navbar";
-import { Route, withRouter } from "react-router-dom";
+import { HashRouter, Route, withRouter } from "react-router-dom";
 import UsersContainer from "./components/Users/UsersContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
-import { connect } from "react-redux";
+import { connect, Provider } from "react-redux";
 import { initializeApp } from "./redux/app-reducer";
 import { compose } from "redux";
 import Preloader from "./components/common/Preloader/Preloader";
 import { withSuspense } from "./hoc/withSuspense";
+import store from "./redux/redux-store";
+
 const DialogsContainer = React.lazy(() =>
   import("./components/Dialogs/DialogsContainer")
 );
@@ -28,7 +30,6 @@ class App extends Component {
     if (!this.props.initialized) {
       return <Preloader />;
     }
-
     return (
       <div className="app-wrapper">
         <HeaderContainer />
@@ -55,7 +56,19 @@ class App extends Component {
 const mapStateToProps = (state) => ({
   initialized: state.app.initialized,
 });
-export default compose(
+let AppContainer = compose(
   withRouter,
   connect(mapStateToProps, { initializeApp })
 )(App);
+
+const SocialNWApp = (props) => {
+  return (
+    <HashRouter>
+      <Provider store={store}>
+        <AppContainer />
+      </Provider>
+    </HashRouter>
+  );
+};
+
+export default SocialNWApp;
