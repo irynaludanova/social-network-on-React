@@ -7,7 +7,8 @@ const Header = ({ login, logout, isAuth }) => {
     <header className={classes.header}>
       <div className={classes.rotateShadows}></div>
       <div className={classes.title}>
-        <h1>village social network</h1>{" "}
+        <h1>Dev2Dev</h1>
+        <h2>social network</h2>
       </div>
       <div className={classes.loginBlock}>
         {isAuth ? (

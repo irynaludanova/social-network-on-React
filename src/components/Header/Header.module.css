@@ -8,7 +8,13 @@
   grid-area: header;
 }
 .title {
-  margin: 0 auto;
+  display: flex;
+}
+h1 {
+  margin: 10px;
+}
+h2 {
+  color: rgb(250, 131, 46);
 }
 
 .rotateShadows {
