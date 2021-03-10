@@ -5,7 +5,7 @@ import Message from "./Message/Message";
 import { Redirect } from "react-router-dom";
 import AddMessageForm from "./AddMessageForm/AddMessageForm";
 
-const Dialogs = ({ dialogsPage, isAuth, sendMessage }) => {
+const Dialogs = ({ dialogsPage, sendMessage, isAuth }) => {
   let state = dialogsPage;
   let dialogsElements = state.dialogs.map((d) => (
     <DialogItem name={d.name} key={d.id} id={d.id} />
@@ -22,17 +22,18 @@ const Dialogs = ({ dialogsPage, isAuth, sendMessage }) => {
 
   if (!isAuth) {
     return <Redirect to={"/login"} />;
-  }
-  return (
-    <div className={classes.dialogs}>
-      <div className={classes.dialogsItems}>{dialogsElements}</div>
-      <div className={classes.messages}>
-        <div>{messagesElements}</div>
-      </div>
+  } else {
+    return (
+      <div className={classes.dialogs}>
+        <div className={classes.dialogsItems}>{dialogsElements}</div>
+        <div className={classes.messages}>
+          <div>{messagesElements}</div>
+        </div>
 
-      <AddMessageForm onSubmit={addNewMessage} />
-    </div>
-  );
+        <AddMessageForm onSubmit={addNewMessage} />
+      </div>
+    );
+  }
 };
 
 export default Dialogs;

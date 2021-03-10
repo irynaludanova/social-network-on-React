@@ -11,12 +11,176 @@ const TOGGLE_IS_FOLLOWING_PROGRESS = "TOGGLE_IS_FOLLOWING_PROGRESS";
 
 let initialState = {
   users: [],
-  pageSize: 5,
+  pageSize: 10,
   totalUsersCount: 0,
   currentPage: 1,
   isFetching: true,
   followingInProgress: [],
 };
+// let initialState = {
+//   profilePage: {
+//     posts: [
+//       {
+//         id: 1,
+//         message: "Hi, how are you?",
+//         likesCount: 12,
+//       },
+//       {
+//         id: 2,
+//         message: "It`s my first post",
+//         likesCount: 11,
+//       },
+//       {
+//         id: 3,
+//         message: "YoYo!!",
+//         likesCount: 15,
+//       },
+//     ],
+//     profile: {
+//       aboutMe: null,
+//       contacts: {
+//         facebook: null,
+//         website: null,
+//         vk: null,
+//         twitter: null,
+//         instagram: null,
+//         youtube: null,
+//         github: null,
+//         mainLink: null,
+//       },
+//       lookingForAJob: false,
+//       lookingForAJobDescription: null,
+//       fullName: "Ludanova",
+//       userId: 15520,
+//       photos: {
+//         small: null,
+//         large: null,
+//       },
+//     },
+//     status: "hello react",
+//   },
+//   dialogsPage: {
+//     dialogs: [
+//       {
+//         id: 1,
+//         name: "Flaffy",
+//       },
+//       {
+//         id: 2,
+//         name: "Holly",
+//       },
+//       {
+//         id: 3,
+//         name: "Berry",
+//       },
+//       {
+//         id: 4,
+//         name: "Flint",
+//       },
+//       {
+//         id: 5,
+//         name: "Mikky",
+//       },
+//     ],
+//     messages: [
+//       {
+//         id: 1,
+//         message: "Hi",
+//       },
+//       {
+//         id: 2,
+//         message: "Hello",
+//       },
+//       {
+//         id: 3,
+//         message: "Glad to see",
+//       },
+//       {
+//         id: 4,
+//         message: "Wow",
+//       },
+//       {
+//         id: 5,
+//         message: "What&",
+//       },
+//     ],
+//   },
+//   sidebar: {},
+//   usersPage: {
+//     users: [
+//       {
+//         name: "restdz",
+//         id: 15623,
+//         uniqueUrlName: null,
+//         photos: {
+//           small: null,
+//           large: null,
+//         },
+//         status: null,
+//         followed: true,
+//       },
+//       {
+//         name: "Vova342",
+//         id: 15622,
+//         uniqueUrlName: null,
+//         photos: {
+//           small: null,
+//           large: null,
+//         },
+//         status: null,
+//         followed: false,
+//       },
+//       {
+//         name: "test12344",
+//         id: 15621,
+//         uniqueUrlName: null,
+//         photos: {
+//           small: null,
+//           large: null,
+//         },
+//         status: null,
+//         followed: false,
+//       },
+//       {
+//         name: "raxani6032",
+//         id: 15620,
+//         uniqueUrlName: null,
+//         photos: {
+//           small: null,
+//           large: null,
+//         },
+//         status: null,
+//         followed: false,
+//       },
+//       {
+//         name: "Monika",
+//         id: 15619,
+//         uniqueUrlName: null,
+//         photos: {
+//           small: null,
+//           large: null,
+//         },
+//         status: null,
+//         followed: false,
+//       },
+//     ],
+//     pageSize: 5,
+//     totalUsersCount: 10631,
+//     currentPage: 1,
+//     isFetching: false,
+//     followingInProgress: [],
+//   },
+//   auth: {
+//     userId: 15520,
+//     email: "irynaludanova@gmail.com",
+//     login: "Ludanova",
+//     isAuth: true,
+//   },
+//   form: {},
+//   app: {
+//     initialized: true,
+//   },
+// };
 
 const usersReducer = (state = initialState, action) => {
   switch (action.type) {

@@ -12,7 +12,7 @@ const Header = ({ login, logout, isAuth }) => {
       <div className={classes.loginBlock}>
         {isAuth ? (
           <div>
-            {login} - <button onClick={logout}>LogOut</button>
+            {login} <button onClick={logout}>LogOut</button>
           </div>
         ) : (
           <NavLink to={"/login"}>Login</NavLink>

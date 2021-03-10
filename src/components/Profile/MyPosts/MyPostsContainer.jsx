@@ -2,10 +2,10 @@ import { addPostActionCreator } from "../../../redux/profile-reducer";
 import MyPosts from "./MyPosts";
 import { connect } from "react-redux";
 
-const mapStateToProps = ({ profilePage }) => {
+const mapStateToProps = (state) => {
   return {
-    posts: profilePage.posts,
-    newPostText: profilePage.newPostText,
+    posts: state.profilePage.posts,
+    newPostText: state.profilePage.newPostText,
   };
 };
 
