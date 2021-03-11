@@ -1,7 +1,13 @@
 import React, { Component } from "react";
 import "./App.css";
 import Navbar from "./components/Navbar/Navbar";
-import { HashRouter, Route, withRouter } from "react-router-dom";
+import {
+  BrowserRouter,
+  Redirect,
+  Route,
+  Switch,
+  withRouter,
+} from "react-router-dom";
 import UsersContainer from "./components/Users/UsersContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
 import { connect, Provider } from "react-redux";
@@ -23,9 +29,20 @@ const News = React.lazy(() => import("./components/News/News"));
 const Settings = React.lazy(() => import("./components/Settings/Settings"));
 
 class App extends Component {
+  catchAllUnhandledErrors = (reason, promise) => {
+    alert("Some error occured");
+  };
   componentDidMount() {
     this.props.initializeApp();
+    window.addEventListener("unhandledrejection", this.catchAllUnhandledErrors);
   }
+  componentWillUnmount() {
+    window.removeEventListener(
+      "unhandledrejection",
+      this.catchAllUnhandledErrors
+    );
+  }
+
   render() {
     if (!this.props.initialized) {
       return <Preloader />;
@@ -35,19 +52,22 @@ class App extends Component {
         <HeaderContainer />
         <Navbar />
         <div className="app-wrapper-content">
-          <Route path="/dialogs" render={withSuspense(DialogsContainer)} />
-          <Route
-            path="/profile/:userId?"
-            render={withSuspense(ProfileContainer)}
-          />
-          <Route path="/login" render={withSuspense(Login)} />
-          <Route path="/news" render={withSuspense(News)} />
-          <Route path="/music" render={withSuspense(Music)} />
-          <Route path="/settings" render={withSuspense(Settings)} />
+          <Switch>
+            <Route exact path="/" render={() => <Redirect to={"/profile"} />} />
 
-          <Route path="/users" render={() => <UsersContainer />} />
+            <Route path="/dialogs" render={withSuspense(DialogsContainer)} />
 
-          <Route exact path="/news" render={() => <News />} />
+            <Route
+              path="/profile/:userId?"
+              render={withSuspense(ProfileContainer)}
+            />
+
+            <Route path="/users" render={() => <UsersContainer />} />
+
+            <Route path="/login" render={() => <Login />} />
+
+            <Route path="*" render={() => <div>404 NOT FOUND</div>} />
+          </Switch>
         </div>
       </div>
     );
@@ -63,11 +83,11 @@ let AppContainer = compose(
 
 const SocialNWApp = (props) => {
   return (
-    <HashRouter>
+    <BrowserRouter>
       <Provider store={store}>
         <AppContainer />
       </Provider>
-    </HashRouter>
+    </BrowserRouter>
   );
 };
 

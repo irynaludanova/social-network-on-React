@@ -21,7 +21,7 @@ let Paginator = ({
   let rightPortionPageNumber = portionNumber * portionSize;
 
   return (
-    <div className={classes.paginator}>
+    <div className={cn(classes.paginator)}>
       {portionNumber > 1 && (
         <button
           onClick={() => {
