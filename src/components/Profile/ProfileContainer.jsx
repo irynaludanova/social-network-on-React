@@ -3,11 +3,13 @@ import Profile from "./Profile";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import {
-  getUserProfile,
   getUsersStatus,
-  updateStatus,
+  getUserProfile,
   savePhoto,
+  saveProfile,
+  updateStatus,
 } from "../../redux/profile-reducer";
+
 import { compose } from "redux";
 
 class ProfileContainer extends React.Component {
@@ -58,6 +60,8 @@ export default compose(
     getUsersStatus,
     updateStatus,
     savePhoto,
+    saveProfile,
   }),
+
   withRouter
 )(ProfileContainer);
