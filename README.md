@@ -2,9 +2,11 @@ SPA Social Network
 A social network that allows you to publish your data, view the data of other users, write messages, subscribe to user accounts.
 
 Installation
+
 Use the npm to install SPA.
 
 npm install 
+
 Brief description of the project
 SPA development (social network).
 The main stages and elements involved in the implementation of the project.
